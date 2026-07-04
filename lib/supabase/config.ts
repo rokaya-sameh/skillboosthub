@@ -1,12 +1,12 @@
 export function getSupabaseConfig() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim()
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim()
+  const publishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY?.trim()
 
-  if (!url || !anonKey) {
+  if (!url || !publishableKey) {
     return null
   }
 
-  return { url, anonKey }
+  return { url, key: publishableKey }
 }
 
 export function assertSupabaseConfig() {
@@ -14,7 +14,7 @@ export function assertSupabaseConfig() {
 
   if (!config) {
     throw new Error(
-      'Supabase is not configured. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.',
+      'Supabase is not configured. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY.',
     )
   }
 
