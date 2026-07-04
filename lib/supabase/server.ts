@@ -13,7 +13,7 @@ export async function createClient() {
     return createSupabaseFallbackClient() as ReturnType<typeof createServerClient>
   }
 
-  return createServerClient(config.url, config.anonKey, {
+  return createServerClient(config.url, config.key, {
     cookies: {
       getAll() {
         return cookieStore.getAll()
