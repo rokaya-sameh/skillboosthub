@@ -8,5 +8,5 @@ export function createClient() {
     return createSupabaseFallbackClient() as ReturnType<typeof createBrowserClient>
   }
 
-  return createBrowserClient(config.url, config.anonKey)
+  return createBrowserClient(config.url, config.key)
 }
