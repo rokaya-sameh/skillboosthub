@@ -1,0 +1,19 @@
+{
+  "name": "Skill Boost Hub",
+  "short_name": "SkillBoost",
+  "description": "Learn, track progress, and grow with your instructors and study groups.",
+  "start_url": "/dashboard",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b0a18",
+  "theme_color": "#5b34e0",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
