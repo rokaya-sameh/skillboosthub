@@ -9,7 +9,7 @@ update public.profiles p
 set role = 'admin'
 from auth.users u
 where u.id = p.id
-  and u.email = 'you@example.com';   -- <-- CHANGE THIS
+  and u.email = 'rokayasameh292@gmail.com';   -- <-- CHANGE THIS
 
 -- 2) Seed achievement badges (light gamification)
 insert into public.badges (name, description, icon, rarity) values
