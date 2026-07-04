@@ -11,8 +11,9 @@ import { Button } from '@/components/ui/button'
 import { AlertTriangle } from 'lucide-react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 
-export default function AuthErrorPage() {
+function AuthErrorContent() {
   const searchParams = useSearchParams()
   const message =
     searchParams.get('message') ??
@@ -33,5 +34,13 @@ export default function AuthErrorPage() {
         </Button>
       </CardContent>
     </Card>
+  )
+}
+
+export default function AuthErrorPage() {
+  return (
+    <Suspense fallback={<div className="w-full max-w-sm text-center text-sm text-muted-foreground">Loading…</div>}>
+      <AuthErrorContent />
+    </Suspense>
   )
 }
