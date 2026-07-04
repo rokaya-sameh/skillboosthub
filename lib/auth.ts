@@ -31,9 +31,9 @@ export const getProfile = cache(async (): Promise<Profile | null> => {
 
   if (data) return data as Profile
 
-  // No profile row yet — create one from metadata (bypasses RLS via service role).
-  // IMPORTANT: only insert, never update an existing row. If a row already
-  // exists with a manually-set role (e.g. admin), onConflict ignore preserves it.
+  // No profile row yet — create one from metadata if a service-role client is available.
+  // If the service-role key is not configured, fall back to returning null so the app
+  // can continue without crashing the request.
   try {
     const admin = createAdminClient()
     const meta = (user.user_metadata ?? {}) as Record<string, unknown>
